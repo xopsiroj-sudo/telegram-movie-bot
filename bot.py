@@ -128,6 +128,13 @@ app = Flask(__name__)
 
 # --- Majburiy Obuna Tekshiruvi ---
 def check_subscription(user_id):
+    # Agar kanal sozlanmagan bo'lsa, hamma o'tadi
+    if not REQUIRED_CHANNELS:
+        return True
+    # Adminga doim ruxsat
+    if str(user_id) in ADMIN_IDS:
+        return True
+
     for channel in REQUIRED_CHANNELS:
         try:
             member = bot.get_chat_member(channel['id'], user_id)
@@ -136,6 +143,7 @@ def check_subscription(user_id):
                 return False
         except Exception as e:
             logger.error(f"Subscription check error for {channel['id']}: {e}")
+            # Agar bot kanal admini bo'lmasa tekshirib bo'lmaydi, o'tkazib yuboramiz
             continue
             
     return True
@@ -215,11 +223,23 @@ def admin_panel(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     if call.data == "check_sub":
+        bot.answer_callback_query(call.id)  # Tugma spinnerini to'xtatish
         if check_subscription(call.from_user.id):
-            bot.delete_message(call.message.chat.id, call.message.message_id)
-            bot.send_message(call.message.chat.id, "Tabriklaymiz! ✅\nBotdan foydalanishingiz mumkin.", reply_markup=get_main_menu())
+            try:
+                bot.delete_message(call.message.chat.id, call.message.message_id)
+            except:
+                pass
+            bot.send_message(
+                call.from_user.id, 
+                "Tabriklaymiz! ✅\nBotdan foydalanishingiz mumkin.\nKino kodini yuboring.", 
+                reply_markup=get_main_menu()
+            )
         else:
-            bot.answer_callback_query(call.id, "Siz hali barcha kanallarga a'zo bo'lmadingiz! ❌", show_alert=True)
+            bot.answer_callback_query(
+                call.id, 
+                "Siz hali barcha kanallarga a'zo bo'lmadingiz! ❌\nA'zo bo'lib, qayta 'Tekshirish'ni bosing.", 
+                show_alert=True
+            )
         return
 
     if call.data.startswith("get_movie_"):
