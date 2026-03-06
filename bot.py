@@ -466,7 +466,8 @@ def add_movie(message):
         conn.commit()
         conn.close()
 
-        logger.info(f"Admin {ADMIN_ID} kino qo'shdi: {code} -> {file_path}")
+        logger.info(f"Admin kino qo'shdi: {code} -> {file_path}")
+
         bot.reply_to(message, f"Kino muvaffaqiyatli qo'shildi. ✅\nKodi: {code}\nNomi: {title or 'Nomsiz'}")
 
     except Exception as e:
