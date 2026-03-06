@@ -1,0 +1,413 @@
+2026-03-04 01:55:58,041 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 01:55:58,041 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:06:19,819 - TeleBot - ERROR - Infinity polling exception: no such table: movies
+2026-03-04 02:06:19,821 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 154, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 10427, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.gemini\antigravity\scratch\telegram_movie_bot\bot.py", line 109, in handle_message
+    elif call.data == "list_movies":
+sqlite3.OperationalError: no such table: movies
+
+2026-03-04 02:12:06,621 - TeleBot - ERROR - Infinity polling exception: no such table: movies
+2026-03-04 02:12:06,623 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 154, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 10427, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.gemini\antigravity\scratch\telegram_movie_bot\bot.py", line 109, in handle_message
+    elif call.data == "list_movies":
+sqlite3.OperationalError: no such table: movies
+
+2026-03-04 02:12:23,984 - TeleBot - ERROR - Infinity polling exception: no such table: movies
+2026-03-04 02:12:23,991 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 154, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 10427, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.gemini\antigravity\scratch\telegram_movie_bot\bot.py", line 109, in handle_message
+    elif call.data == "list_movies":
+sqlite3.OperationalError: no such table: movies
+
+2026-03-04 02:13:26,976 - TeleBot - ERROR - Infinity polling exception: no such column: file_path
+2026-03-04 02:13:26,988 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1110, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1198, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1273, in __threaded_polling
+    raise e
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 154, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 10427, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\.gemini\antigravity\scratch\telegram_movie_bot\bot.py", line 109, in handle_message
+sqlite3.OperationalError: no such column: file_path
+
+2026-03-04 02:16:35,338 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:16:36,138 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:16:36,138 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:17:06,107 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:17:06,923 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:17:06,923 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:20:05,434 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:22:13,323 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:22:14,086 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:22:14,086 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:22:43,799 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:22:50,294 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:28:35,237 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:28:41,681 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:28:42,489 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:28:42,489 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:30:07,144 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:31:49,454 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:31:50,226 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:31:50,226 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:31:59,761 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:31:59,899 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:32:03,814 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:32:03,956 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:32:24,389 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:32:24,527 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:32:55,615 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:32:55,759 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:35:03,909 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:47:48,238 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:47:48,377 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:51:06,383 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:51:06,533 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:51:40,138 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:51:40,292 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:52:21,705 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:52:21,856 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:52:25,435 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:52:25,585 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:53:15,047 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:53:15,863 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:53:15,863 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:53:17,400 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:17,401 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:20,783 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:20,784 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:21,148 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:21,150 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:24,764 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:24,764 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:25,378 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:25,382 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:29,496 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:29,497 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:30,608 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-03-04 02:53:30,611 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 1234, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 115, in raise_exceptions
+    raise self.exception_info
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\util.py", line 97, in run
+    task(*args, **kwargs)
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 688, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\__init__.py", line 660, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 339, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\telebot\apihelper.py", line 197, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2026-03-04 02:53:39,318 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:53:40,091 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:53:40,091 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:54:32,927 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:54:33,074 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:55:15,733 - __main__ - ERROR - Subscription check error: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 02:55:15,876 - __main__ - INFO - Sent movie for code 1
+2026-03-04 02:56:25,503 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:56:26,258 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:56:26,258 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 02:56:45,941 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 02:56:46,703 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 02:56:46,703 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 03:01:10,156 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-04 03:01:10,947 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-04 03:01:10,948 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-04 03:02:10,969 - __main__ - ERROR - Subscription check error for user 8193378736 in chat -1003212262636: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 03:02:11,105 - __main__ - INFO - Sent movie for code 1
+2026-03-04 03:04:18,067 - __main__ - ERROR - Subscription check error for user 8193378736 in chat -1003212262636: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2026-03-04 03:04:18,207 - __main__ - INFO - Sent movie for code 1
+2026-03-05 01:32:59,637 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 01:33:00,505 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 01:33:00,506 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 01:35:11,427 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 01:35:12,193 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 01:35:12,193 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 01:49:56,826 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 01:49:57,754 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 01:49:57,754 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 01:51:10,942 - __main__ - ERROR - Kanal topilmadi: -1003212262636. Iltimos, CHANNEL_ID ni tekshiring.
+2026-03-05 01:51:11,161 - __main__ - ERROR - Error sending movie 1: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-03-05 01:51:41,305 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 01:51:42,124 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 01:51:42,125 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 01:52:25,753 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:52:40,359 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:54:03,397 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:55:19,732 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:56:33,334 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 01:56:34,204 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 01:56:34,204 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 01:56:59,422 - __main__ - ERROR - Error sending movie 1: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-03-05 01:57:17,272 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 01:58:59,231 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:59:09,144 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 01:59:30,888 - __main__ - ERROR - Obunani tekshirishda xatolik: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: member list is inaccessible
+2026-03-05 02:01:00,767 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:01:01,632 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:01:01,632 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:02:37,873 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @moddly_ice
+2026-03-05 02:02:38,004 - __main__ - ERROR - Error sending movie 1: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-03-05 02:02:42,998 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @moddly_ice
+2026-03-05 02:02:43,182 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:03:12,740 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @moddly_ice
+2026-03-05 02:04:35,736 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:04:36,693 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:04:36,694 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:05:42,959 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @trgnvss
+2026-03-05 02:06:31,954 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @trgnvss
+2026-03-05 02:06:32,155 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:11:02,898 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:11:03,742 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:11:03,742 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:12:00,344 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:12:01,222 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:12:01,223 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:15:21,740 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:23,719 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:23,898 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:15:25,584 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:25,739 - __main__ - ERROR - Error sending movie 1: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: wrong file identifier/HTTP URL specified
+2026-03-05 02:15:27,397 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:27,570 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:15:28,478 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:28,637 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:15:29,821 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:29,996 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:15:38,396 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:41,732 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:15:41,903 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:16:28,419 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi. CHANNEL_ID: @hanafiyth
+2026-03-05 02:16:28,584 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:18:02,079 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:18:02,936 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:18:02,936 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:18:53,231 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi.
+2026-03-05 02:18:53,392 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:20:06,893 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:20:07,776 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:20:07,777 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:20:29,240 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi.
+2026-03-05 02:20:29,405 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:20:51,086 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi.
+2026-03-05 02:20:54,586 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi.
+2026-03-05 02:20:54,829 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:25:20,999 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:25:21,833 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:25:21,834 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:25:32,041 - __main__ - INFO - Ma'lumotlar bazasi tekshirildi/yaratildi.
+2026-03-05 02:25:32,976 - __main__ - INFO - Starting Flask server for Telegram Movie Bot...
+2026-03-05 02:25:32,977 - __main__ - WARNING - WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...
+2026-03-05 02:27:07,536 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi: @trgnvss
+2026-03-05 02:27:07,647 - __main__ - ERROR - Bot kanalda admin emas! Obunani tekshirib bo'lmaydi: @moddly_ice
+2026-03-05 02:27:07,767 - __main__ - ERROR - Kanal topilmadi: @movieman_1
+2026-03-05 02:27:07,921 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:52:04,286 - __main__ - INFO - Sent movie for code/title 2
+2026-03-05 02:55:45,580 - __main__ - INFO - Sent movie for code/title 2
