@@ -688,30 +688,33 @@ def set_webhook_route():
         return "WEBHOOK_URL sozlanmagan", 400
 
 if __name__ == "__main__":
+    import threading
     logger.info("Starting Telegram Movie Bot...")
-    
+
     if WEBHOOK_URL:
         # Webhook rejimi - Flask server ishga tushadi
-        # Webhook ni /set_webhook endpointiga kirish orqali o'rnatish mumkin
         logger.info(f"Webhook rejimi: {WEBHOOK_URL}")
-        logger.info("Webhook o'rnatish uchun: GET /set_webhook sahifasiga kiring")
-        # Dastlab webhookni o'chirib qo'yamiz (xavfsiz holat)
         try:
             bot.remove_webhook()
-        except Exception as e:
-            logger.warning(f"remove_webhook xatosi: {e}")
-        # Keyin webhook ni o'rnatamiz
-        try:
             bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
-            logger.info("Webhook o'rnatildi!")
+            logger.info("Webhook muvaffaqiyatli o'rnatildi!")
         except Exception as e:
             logger.error(f"Webhook o'rnatishda xatolik: {e}")
+        # Flask har doim ishga tushadi
         app.run(host='0.0.0.0', port=PORT, debug=False)
     else:
-        # Polling rejimi (local testing)
+        # Polling rejimi - background thread'da polling, Flask port uchun
         logger.warning("WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...")
         try:
             bot.remove_webhook()
         except:
             pass
-        bot.infinity_polling()
+        # Background thread'da polling
+        def run_polling():
+            bot.infinity_polling(none_stop=True)
+        
+        t = threading.Thread(target=run_polling, daemon=True)
+        t.start()
+        logger.info(f"Polling thread boshlandi. Flask port {PORT} da ishlamoqda...")
+        # Flask ham ishga tushadi (Render port tekshiruvi uchun)
+        app.run(host='0.0.0.0', port=PORT, debug=False)
