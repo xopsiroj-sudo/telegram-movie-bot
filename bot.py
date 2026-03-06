@@ -671,30 +671,47 @@ def getMessage():
     return "!", 200
 
 @app.route("/")
-def webhook():
-    bot.remove_webhook()
+def index():
+    return f"Bot is running! Channels: {len(REQUIRED_CHANNELS)}, Admins: {len(ADMIN_IDS)}", 200
+
+@app.route("/set_webhook")
+def set_webhook_route():
+    """Webhook o'rnatish uchun maxsus endpoint"""
     if WEBHOOK_URL:
-        bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
-        return "Webhook set successfully!", 200
+        try:
+            bot.remove_webhook()
+            bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
+            return f"Webhook muvaffaqiyatli o'rnatildi: {WEBHOOK_URL}", 200
+        except Exception as e:
+            return f"Xatolik: {e}", 500
     else:
-        return "WEBHOOK_URL not set in .env", 400
+        return "WEBHOOK_URL sozlanmagan", 400
 
 if __name__ == "__main__":
-    # Ensure dependencies are installed
-    install_dependencies()
+    logger.info("Starting Telegram Movie Bot...")
     
-    logger.info("Starting Flask server for Telegram Movie Bot...")
-    
-    # In production, set the webhook automatically if URL is provided
     if WEBHOOK_URL:
-        bot.remove_webhook()
-        bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
-        logger.info(f"Webhook {WEBHOOK_URL} ga o'rnatildi")
-        # Start Flask server
+        # Webhook rejimi - Flask server ishga tushadi
+        # Webhook ni /set_webhook endpointiga kirish orqali o'rnatish mumkin
+        logger.info(f"Webhook rejimi: {WEBHOOK_URL}")
+        logger.info("Webhook o'rnatish uchun: GET /set_webhook sahifasiga kiring")
+        # Dastlab webhookni o'chirib qo'yamiz (xavfsiz holat)
+        try:
+            bot.remove_webhook()
+        except Exception as e:
+            logger.warning(f"remove_webhook xatosi: {e}")
+        # Keyin webhook ni o'rnatamiz
+        try:
+            bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
+            logger.info("Webhook o'rnatildi!")
+        except Exception as e:
+            logger.error(f"Webhook o'rnatishda xatolik: {e}")
         app.run(host='0.0.0.0', port=PORT, debug=False)
     else:
+        # Polling rejimi (local testing)
         logger.warning("WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...")
-        # Start Flask in background thread if needed, or just run polling
-        # For simplicity in this demo, we'll just use polling if no webhook
-        bot.remove_webhook()
+        try:
+            bot.remove_webhook()
+        except:
+            pass
         bot.infinity_polling()
