@@ -61,7 +61,7 @@ if not BOT_TOKEN or not ADMIN_IDS:
     sys.exit(1)
 
 # --- Database Initialization ---
-DB_PATH = "movies.db"
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "movies.db")
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -481,11 +481,16 @@ def save_auto_movie(message, file_id):
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
-        # Keyingi ID ni aniqlash
-        cursor.execute("SELECT MAX(id) FROM movies")
-        max_id = cursor.fetchone()[0]
-        new_id = (max_id + 1) if max_id else 101
-        new_code = str(new_id)
+        # Keyingi kodni aniqlash (100dan boshlab)
+        cursor.execute("SELECT code FROM movies ORDER BY CAST(code AS INTEGER) DESC LIMIT 1")
+        row = cursor.fetchone()
+        if row:
+            try:
+                new_code = str(int(row[0]) + 1)
+            except:
+                new_code = str(101)
+        else:
+            new_code = str(101)
         
         title = None
         category = "Boshqa"
@@ -493,25 +498,33 @@ def save_auto_movie(message, file_id):
             parts = message.caption.split("|")
             title = parts[0].strip()
             if len(parts) > 1: category = parts[1].strip()
-        else:
-            title = message.document.file_name if message.document else None
+        elif hasattr(message, 'document') and message.document:
+            title = message.document.file_name
 
-        cursor.execute("INSERT INTO movies (code, file_identifier, title, category, type) VALUES (?, ?, ?, ?, ?)", 
-                       (new_code, file_id, title, category, 'file_id'))
+        cursor.execute(
+            "INSERT OR REPLACE INTO movies (code, file_identifier, title, category, type) VALUES (?, ?, ?, ?, ?)", 
+            (new_code, file_id, title, category, 'file_id')
+        )
         conn.commit()
         conn.close()
         
-        # Sarlavhani tahrirlash (Kod qo'shish)
-        new_caption = f"{title or ''}\n\n🔑 <b>Kod: {new_code}</b>"
-        try:
-            bot.edit_message_caption(chat_id=message.chat.id, message_id=message.message_id, caption=new_caption, parse_mode="HTML")
-        except Exception as e:
-            logger.warning(f"Sarlavhani tahrirlab bo'lmadi: {e}")
+        # Sarlavhani tahrirlash (Kod qo'shish) - faqat kanaldan kelsa
+        if hasattr(message, 'chat') and message.chat.type in ['channel']:
+            new_caption = f"{title or ''}".strip() + f"\n\n\U0001f511 Kod: {new_code}"
+            try:
+                bot.edit_message_caption(
+                    chat_id=message.chat.id, 
+                    message_id=message.message_id, 
+                    caption=new_caption
+                )
+            except Exception as e:
+                logger.warning(f"Sarlavhani tahrirlab bo'lmadi: {e}")
 
+        logger.info(f"Kino saqlandi: kod={new_code}, file_id={file_id[:20]}...")
         return new_code
     except Exception as e:
         logger.error(f"Error auto saving movie: {e}", exc_info=True)
-        return None
+        return str(e)
 
 @bot.message_handler(content_types=['video', 'document'])
 def handle_docs_videos(message):
@@ -528,10 +541,11 @@ def handle_docs_videos(message):
     
     if file_id:
         code = save_auto_movie(message, file_id)
-        if code:
+        # save_auto_movie returns code string or error string (never None now)
+        if code and code.isdigit():
             bot.reply_to(message, f"Kino tizimga saqlandi! ✅\nKodi: `{code}`", parse_mode="Markdown")
         else:
-            bot.reply_to(message, "Xatolik: Kinoni saqlab bo'lmadi.")
+            bot.reply_to(message, f"Xatolik: Kinoni saqlab bo'lmadi.\n🔍 Sabab: `{code}`", parse_mode="Markdown")
     else:
         bot.reply_to(message, "Fayl topilmadi.")
 
