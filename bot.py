@@ -647,8 +647,8 @@ if __name__ == "__main__":
         bot.remove_webhook()
         bot.set_webhook(url=WEBHOOK_URL + '/' + BOT_TOKEN)
         logger.info(f"Webhook {WEBHOOK_URL} ga o'rnatildi")
-        # Start Flask server
-        app.run(host='0.0.0.0', port=PORT)
+    # Start Flask server
+    app.run(host='0.0.0.0', port=PORT, debug=False)
     else:
         logger.warning("WEBHOOK_URL topilmadi, Polling rejimida ishlanmoqda...")
         # Start Flask in background thread if needed, or just run polling
