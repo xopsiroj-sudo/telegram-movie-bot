@@ -128,33 +128,33 @@ app = Flask(__name__)
 
 # --- Majburiy Obuna Tekshiruvi ---
 def check_subscription(user_id):
-    if not REQUIRED_CHANNELS:
-        return True
-    
-    # Adminga doim ruxsat
-    if str(user_id) in ADMIN_IDS:
-        return True
-        
     for channel in REQUIRED_CHANNELS:
         try:
             member = bot.get_chat_member(channel['id'], user_id)
             if member.status not in ['member', 'administrator', 'creator']:
                 logger.info(f"Foydalanuvchi {user_id} {channel['id']} kanalida emas.")
                 return False
-        except telebot.apihelper.ApiTelegramException as e:
-            error_text = str(e).lower()
-            if "chat not found" in error_text:
-                logger.error(f"Kanal topilmadi: {channel['id']}.")
-                continue # Boshqa kanallarni tekshirishni davom ettiramiz
-            elif "not an administrator" in error_text:
-                logger.error(f"Bot {channel['id']} kanalida admin emas!")
-                continue
-            return True # Noaniqlikda ruxsat beramiz
         except Exception as e:
-            logger.error(f"Xatolik {channel['id']} kanalini tekshirishda: {e}")
+            logger.error(f"Subscription check error for {channel['id']}: {e}")
             continue
             
     return True
+
+def get_subscription_markup():
+    markup = telebot.types.InlineKeyboardMarkup()
+    for channel in REQUIRED_CHANNELS:
+        url = channel['link']
+        if not url:
+            try:
+                chat = bot.get_chat(channel['id'])
+                url = f"https://t.me/{chat.username}" if chat.username else chat.invite_link
+            except:
+                url = f"https://t.me/{channel['id'].replace('@', '')}"
+        chan_name = channel['id']
+        markup.add(telebot.types.InlineKeyboardButton(f"➕ {chan_name} ga a'zo bo'lish", url=url))
+    
+    markup.add(telebot.types.InlineKeyboardButton("✅ Tekshirish", callback_data="check_sub"))
+    return markup
 
 # --- Bot Command Handlers ---
 
@@ -166,6 +166,15 @@ def get_main_menu():
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     register_user(message.from_user.id, message.from_user.username)
+    
+    if not check_subscription(message.from_user.id):
+        bot.send_message(
+            message.chat.id, 
+            "Botdan foydalanish uchun quyidagi kanallarga a'zo bo'ling! 👇", 
+            reply_markup=get_subscription_markup()
+        )
+        return
+
     bot.reply_to(message, "Kino Botiga xush kelibsiz! ✅\nKino olish uchun kodni yoki nomini yuboring.", reply_markup=get_main_menu())
 
 @bot.message_handler(commands=['debug'])
@@ -205,7 +214,14 @@ def admin_panel(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    # Hamma uchun ruxsat berilgan callbacklar
+    if call.data == "check_sub":
+        if check_subscription(call.from_user.id):
+            bot.delete_message(call.message.chat.id, call.message.message_id)
+            bot.send_message(call.message.chat.id, "Tabriklaymiz! ✅\nBotdan foydalanishingiz mumkin.", reply_markup=get_main_menu())
+        else:
+            bot.answer_callback_query(call.id, "Siz hali barcha kanallarga a'zo bo'lmadingiz! ❌", show_alert=True)
+        return
+
     if call.data.startswith("get_movie_"):
         file_id = call.data.replace("get_movie_", "")
         conn = sqlite3.connect(DB_PATH)
@@ -484,6 +500,13 @@ def save_auto_movie(message, file_id):
         conn.commit()
         conn.close()
         
+        # Sarlavhani tahrirlash (Kod qo'shish)
+        new_caption = f"{title or ''}\n\n🔑 <b>Kod: {new_code}</b>"
+        try:
+            bot.edit_message_caption(chat_id=message.chat.id, message_id=message.message_id, caption=new_caption, parse_mode="HTML")
+        except Exception as e:
+            logger.warning(f"Sarlavhani tahrirlab bo'lmadi: {e}")
+
         return new_code
     except Exception as e:
         logger.error(f"Error auto saving movie: {e}", exc_info=True)
@@ -521,12 +544,7 @@ def handle_channel_movie(message):
         file_id = message.document.file_id
         
     if file_id:
-        code = save_auto_movie(message, file_id)
-        if code:
-            try:
-                bot.reply_to(message, f"Kino kanaldan qabul qilindi va saqlandi! ✅\nKodi: `{code}`", parse_mode="Markdown")
-            except:
-                bot.send_message(message.chat.id, f"Kino kanaldan qabul qilindi va saqlandi! ✅\nKodi: `{code}`", parse_mode="Markdown")
+        save_auto_movie(message, file_id)
 
 @bot.channel_post_handler(func=lambda message: True)
 def handle_any_channel_post(message):
@@ -543,21 +561,11 @@ def handle_message(message):
     register_user(message.from_user.id, message.from_user.username)
     # Majburiy obuna tekshiruvi
     if not check_subscription(message.from_user.id):
-        markup = telebot.types.InlineKeyboardMarkup()
-        
-        for channel in REQUIRED_CHANNELS:
-            url = channel['link']
-            if not url:
-                try:
-                    chat = bot.get_chat(channel['id'])
-                    url = f"https://t.me/{chat.username}" if chat.username else chat.invite_link
-                except:
-                    url = f"https://t.me/{channel['id'].replace('@', '')}"
-            
-            chan_name = channel['id']
-            markup.add(telebot.types.InlineKeyboardButton(f"{chan_name} ga a'zo bo'lish", url=url))
-        
-        bot.send_message(message.chat.id, "Botdan foydalanish uchun quyidagi kanallarga a'zo bo'ling! 👇", reply_markup=markup)
+        bot.send_message(
+            message.chat.id, 
+            "Botdan foydalanish uchun quyidagi kanallarga a'zo bo'ling! 👇", 
+            reply_markup=get_subscription_markup()
+        )
         return
 
     code = message.text.strip()
